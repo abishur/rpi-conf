@@ -53,7 +53,8 @@ for line in array:
                 line[1] = line[1].replace(' ','')
 
 # Set textReplace to null
-textReplace=""
+reboot = 0
+halt = 0
 
 # checks each file name in /boot
 for file in dirs:
@@ -91,6 +92,7 @@ for file in dirs:
                                                 else:
                                                         textReplace = ("sed -i 's/mode=r/mode=u/g' " + filePath)
                                                         run_command(textReplace)
+                                                        halt = 1
 
                                         # If mode is "w"rite make a backup of the actual config file and then overwrite
                                         # actual config file with contents in /boot partition
@@ -110,6 +112,7 @@ for file in dirs:
                                                                 # remove mode=w from actual config file
                                                                 textReplace = "sed -i 's/mode=w//g' " + line[1]
                                                                 run_command(textReplace)
+                                                                reboot = 1
 
                                         # If mode is "b"ackup copy .bak file and overwrite current config file
                                         elif "mode=b" in results:
@@ -120,6 +123,7 @@ for file in dirs:
                                                 else:
                                                         textReplace = "sed -i 's/mode=b/mode=u/g' " + filePath
                                                         run_command(textReplace)
+                                                        reboot = 1
                                         #if mode is "d"elete remove the file from /boot
                                         elif "mode=d" in results:
                                                 # no try is performed because if the file did not exist you'd
@@ -129,5 +133,7 @@ for file in dirs:
                                 # Close file
                                 searchfile.close()
                                 # If Read/write operation was performed, halt system
-if textReplace != "":
+if halt == 1:
         run_command("halt")
+elif reboot == 1:
+        run_command("reboot")
