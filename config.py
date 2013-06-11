@@ -37,10 +37,21 @@ array = list( csv.reader( open( r'/etc/rpi_conf/list') ) )
 # remove any elements that are empty lines
 array = filter(lambda x: len(x)>0, array)
 
-# remove white spaces
+# remove white spaces from first element to ensure comments are properly removed
+for line in array:
+        if line [0][0] == ' ':
+                line [0] = line[0].replace (' ','')
+
+# remove any commented out lines
+for line in array[:]:
+        if line[0][0] == "#":
+                array.remove(line)
+
+# Remove white spaces from source file locations
 for line in array:
         if line[1][0]==' ':
                 line[1] = line[1].replace(' ','')
+
 
 # checks each file name in /boot
 for file in dirs:
