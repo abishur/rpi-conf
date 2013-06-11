@@ -1,0 +1,11 @@
+# Checks for filenames in /boot and performs operations on source files in ETX4 partition
+# File format is: Name_to_check_for_in_boot, path_to_source_file I.E. network.cfg, /etc/network/interfaces
+# You control the file operation by setting mode=r/w/b/d/u in correlating file in the /boot parition
+# mode=r reads the source file and copies it to the /boot partition
+# mode=w makes a .bak of the source file and then overwrites it with the contents of the file in the /boot partition
+# mode=b restores the .bak of the source file (if there is one)
+# mode=d deletes the file on /boot
+# mode=u does nothing on boot allowing for further tweaking of the config file.
+
+network.cfg, /etc/network/interfaces
+rpi-conf.cfg, /etc/rpi_conf/lsit
