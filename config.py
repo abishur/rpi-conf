@@ -52,6 +52,8 @@ for line in array:
         if line[1][0]==' ':
                 line[1] = line[1].replace(' ','')
 
+# Set textReplace to null
+textReplace=""
 
 # checks each file name in /boot
 for file in dirs:
