@@ -27,3 +27,27 @@ This will tell the program to look for a file called wpa.conf in the /boot FAT32
 to it so it will actually copy the file over
 
 4) When you boot the pi it will create a backup of the current contents of /etc/rpi_conf_list (which can be restored by setting mode=b) and then copy the new contents of /boot/list to /etc/rpi_conf/list then reboot to put the new settings into affect
+
+When reboot it will now know to examine wpa.conf in /boot and will copy the current wpa_supplicant.conf then shut down.
+
+5) You can now edit wpa.conf on the FAT32 /boot parition using your Windows PC and when you are ready to impliment your changes add
+
+> mode=r
+
+to wpa.conf.
+
+6) After a write operation, the mode will be changed from
+
+> mode=r
+
+to
+
+> mode=u
+
+This allows you to make any additional changes you want to before deleting the file.  Which can either be done manually or by setting
+
+> mode=d
+
+which will cause only the file on the /boot FAT32 partition to be deleted.
+
+Config.py should not be modified as doing so could result in harm coming to the vital operating files in /boot
