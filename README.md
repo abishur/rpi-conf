@@ -41,15 +41,19 @@ Explination of the Modes:
 "r"ead mode - Reads the contents from the provided path to the source file and copies it to associated file in /boot (i.e. Network.cfg).  If any file is read, the pi will automatically halt when the program finishes running.  If there are multiple file operations, the pi will default to halting.
 
 **mode=w**
+
 "w"rite mode - Makes a backup of the original source file and then reads the contents of the file in /boot and overwrite the original source file.  If any file is written, the pi will automatically reboot when the program finishes running.
 
 **mode=b**
+
 "b"ackup mode - Provided a backup of the oringinal source file exists, it overwrites the original source file with the backup.  After backup restorations, the pi will automatically reboot when the program finishes running.
 
 **mode=d**
+
 Deletes the file in the FAT32 /boot partitions, does not affect the original source file.  The pi continues normal operation if any files from the /boot partition are deleted.
 
 **mode=u**
+
 "u"ndefined mode - After a mode=r/w/b operation, the mode is automatically set to u.  Nothing is performed on files whose mode is set to u.
 
 Known Limitations:
