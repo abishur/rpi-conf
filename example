@@ -2,4 +2,28 @@ Let's say you wanted to to edit the wpa_supplicant.conf file located in /etc/wpa
 
 Enter rpi-conf.
 
-First off, you 
+1) Create a file called rpi-conf.cfg in the FAT32 partition (/boot) and add
+
+> mode=r
+
+to the file.  This will overwrite rpi-conf.cfg with /etc/rpi_conf/list and then shutdown the pi so you can safely remove the SD card
+
+2) Modify rpi-conf.cfg and add
+
+> wpa.conf, /etc/wpa_supplicant/wpa_supplicant.conf
+
+and add
+
+> mode=w
+
+on a line by itself some where in the file.
+
+This will tell the program to look for a file called wpa.conf in the /boot FAT32 partition and that the config file it's associate with is located at /etc/wpa_supplicant/wpa_supplicant.conf.  It doesn't actually what you name the file it will search for in /boot, but it does need to be followed by a comma and then the path to the file you want to edit.
+
+3) Make sure to also add a file named wpa.conf in the /boot partition and add
+
+> mode=r
+
+to it so it will actually copy the file over
+
+4) When you boot the pi it will create a backup of the current contents of /etc/rpi_conf_list (which can be restored by setting mode=b) and then copy the new contents of /boot/list to /etc/rpi_conf/list then reboot to put the new settings into affect
