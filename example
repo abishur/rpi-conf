@@ -1,0 +1,5 @@
+Let's say you wanted to to edit the wpa_supplicant.conf file located in /etc/wpa_supplicant/ but you can't. You don't have a usb keyboard or maybe you don't have a compatible monitor, likewise you can't access it via SSH, that's the whole reason you need to edit wpa_supplicant.conf, and, of course, all you have in the house is a Windows PC so you can't just mount the SD card and make the changes.
+
+Enter rpi-conf.
+
+First off, you 
