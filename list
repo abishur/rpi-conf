@@ -7,5 +7,9 @@
 # mode=d deletes the file on /boot
 # mode=u does nothing on boot allowing for further tweaking of the config file.
 
-network.cfg, /etc/network/interfaces
+# For editing this file
 rpi-conf.cfg, /etc/rpi_conf/lsit
+
+# For editing wifi configurations
+network.cfg, /etc/network/interfaces
+wpa.conf, /etc/wpa_supplicant/wpa_supplicant.conf
