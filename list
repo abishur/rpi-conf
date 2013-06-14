@@ -10,6 +10,6 @@
 # For editing this file
 rpi-conf.cfg, /etc/rpi_conf/lsit
 
-# For editing wifi configurations
+# For editing network and wifi configurations
 network.cfg, /etc/network/interfaces
 wpa.conf, /etc/wpa_supplicant/wpa_supplicant.conf
