@@ -26,13 +26,13 @@ import subprocess
 path = "/boot/"
 
 #sets list of vital files on /boot to ignore
-ignores = ['bootcode.bin','cmdline.txt','config.txt','.firmware_revision','fixup_cd.dat','fixup.dat','fixup_x.dat','issue.txt','kernel_emergency.img','kernel.img','start_cd.elf','start.elf','start_x.elf']
+ignores = ['bootcode.bin','cmdline.txt','config.txt','.firmware_revision','fixup_cd.dat','fixup.dat','fixup_x.dat','issue.txt','kernel_emergency.img','kernel.img','start_cd.elf','start.elf','start_x.elf', 'list']
 
 #get list of files in /boot partition
 dirs = os.listdir(path)
 
 # make a multidimensional list separated by commas and newlines
-array = list( csv.reader( open( r'/etc/rpi_conf/list') ) )
+array = list( csv.reader( open( r'/boot/list') ) )
 
 # remove any elements that are empty lines
 array = filter(lambda x: len(x)>0, array)
