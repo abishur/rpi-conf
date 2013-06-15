@@ -13,7 +13,7 @@ install:
 
 uninstall:
 	-/etc/init.d/rpi-conf stop
-	rm /etc/rpi_conf/list
+	rm /boot/list
 	rm /etc/rpi_conf/config.py
 	rm -R /etc/rpi_conf
 	rm /etc/init.d/rpi-conf
