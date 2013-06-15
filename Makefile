@@ -6,7 +6,7 @@ install:
 	chmod +x /etc/init.d/rpi-conf
 	cp -f config.py /etc/rpi_conf/config.py
 	chmod +x /etc/rpi_conf/config.py
-	cp -f list /etc/rpi_conf/list
+	cp -f list /boot/list
 	chmod +r /etc/rpi_conf/list
 	update-rc.d rpi-conf start runlvl S
 	/etc/init.d/rpi-conf start
